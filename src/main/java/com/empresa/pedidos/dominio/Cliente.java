@@ -1,7 +1,5 @@
 package com.empresa.pedidos.dominio;
 
-package com.empresa.pedidos.dominio;
-
 public class Cliente {
     private boolean activo;
     private int score;
