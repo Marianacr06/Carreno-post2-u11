@@ -7,15 +7,31 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class EnvioService {
-    private final Map<String, EstrategiaEnvio> estrategias;
-
-    public EnvioService(Map<String, EstrategiaEnvio> estrategias) {
-        this.estrategias = estrategias;
+    // Switch Statement smell — CC = 5
+    public double calcularEnvio(Pedido pedido, String tipoEnvio) {
+        switch (tipoEnvio) {
+            case "ESTANDAR": return pedido.getTotal() > 50 ? 0 : 5.99;
+            case "EXPRESS": return 12.99;
+            case "MISMO_DIA": return 24.99;
+            case "GRATIS": return 0;
+            default: throw new IllegalArgumentException(
+                "Tipo de envio desconocido: " + tipoEnvio);
+        }
     }
 
-    public double calcularEnvio(Pedido pedido, String tipo) {
-        return Optional.ofNullable(estrategias.get(tipo))
-            .orElseThrow(() -> new IllegalArgumentException("Tipo de envio desconocido: " + tipo))
-            .calcularCosto(pedido);
+    // Arrow code — CC = 6
+    public String aprobarCredito(Cliente c, double monto) {
+        if (c != null) {
+            if (c.isActivo()) {
+                if (c.getScore() >= 600) {
+                    if (monto > 0) {
+                        if (monto <= c.getLimiteCredito()) {
+                            return "APROBADO";
+                        }
+                    }
+                }
+            }
+        }
+        return "RECHAZADO";
     }
 }
