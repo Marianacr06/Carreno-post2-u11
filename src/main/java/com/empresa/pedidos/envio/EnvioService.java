@@ -1,12 +1,12 @@
-package com.empresa.pedidos.envio;
+package com.empresa.pedidos.aplicacion;
 
+import com.empresa.pedidos.dominio.Cliente;
 import com.empresa.pedidos.dominio.Pedido;
-import java.util.Map;
-import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EnvioService {
+public class EnvioServiceSucio {
+
     // Switch Statement smell — CC = 5
     public double calcularEnvio(Pedido pedido, String tipoEnvio) {
         switch (tipoEnvio) {
