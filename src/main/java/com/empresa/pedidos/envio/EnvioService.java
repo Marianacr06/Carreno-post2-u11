@@ -5,7 +5,7 @@ import com.empresa.pedidos.dominio.Pedido;
 import org.springframework.stereotype.Service;
 
 @Service
-public class EnvioServiceSucio {
+public class EnvioService {
 
     // Switch Statement smell — CC = 5
     public double calcularEnvio(Pedido pedido, String tipoEnvio) {
