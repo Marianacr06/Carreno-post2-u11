@@ -26,6 +26,6 @@ El patrón Strategy aplicado en `EnvioService` permite agregar nuevos tipos de e
 ![Dashboard Antes](img/ANTES.png)
 
 ### Dashboard DESPUÉS
-![Dashboard Después](img/DESPUES.pngpng)
+![Dashboard Después](img/DESPUES.png)
 
 ---
